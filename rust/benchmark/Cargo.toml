@@ -1,0 +1,41 @@
+[package]
+name = "benchmark"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+aoc01 = { path = "../aoc01" }
+# aoc02 = { path = "../aoc02" }
+# aoc03 = { path = "../aoc03" }
+# aoc04 = { path = "../aoc04" }
+# aoc05 = { path = "../aoc05" }
+# aoc06 = { path = "../aoc06" }
+# aoc07 = { path = "../aoc07" }
+# aoc08 = { path = "../aoc08" }
+# aoc09 = { path = "../aoc09" }
+# aoc10 = { path = "../aoc10" }
+# aoc11 = { path = "../aoc11" }
+# aoc12 = { path = "../aoc12" }
+# aoc13 = { path = "../aoc13" }
+# aoc14 = { path = "../aoc14" }
+# aoc15 = { path = "../aoc15" }
+# aoc16 = { path = "../aoc16" }
+# aoc17 = { path = "../aoc17" }
+# aoc18 = { path = "../aoc18" }
+# aoc19 = { path = "../aoc19" }
+# aoc20 = { path = "../aoc20" }
+# aoc21 = { path = "../aoc21" }
+# aoc22 = { path = "../aoc22" }
+# aoc23 = { path = "../aoc23" }
+# aoc24 = { path = "../aoc24" }
+# aoc25 = { path = "../aoc25" }
+
+[lib]
+name = "benchmark"
+path = "src/lib.rs"
+
+[[bin]]
+name = "bench"
+path = "src/bench.rs"

@@ -1,0 +1,4 @@
+anyhow = "1.0"
+
+[lib]
+path = "src/main.rs"
