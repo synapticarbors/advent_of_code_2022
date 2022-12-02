@@ -7,7 +7,7 @@ edition = "2021"
 
 [dependencies]
 aoc01 = { path = "../aoc01" }
-# aoc02 = { path = "../aoc02" }
+aoc02 = { path = "../aoc02" }
 # aoc03 = { path = "../aoc03" }
 # aoc04 = { path = "../aoc04" }
 # aoc05 = { path = "../aoc05" }
