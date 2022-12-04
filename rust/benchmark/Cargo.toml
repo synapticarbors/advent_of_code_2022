@@ -9,7 +9,7 @@ edition = "2021"
 aoc01 = { path = "../aoc01" }
 aoc02 = { path = "../aoc02" }
 aoc03 = { path = "../aoc03" }
-# aoc04 = { path = "../aoc04" }
+aoc04 = { path = "../aoc04" }
 # aoc05 = { path = "../aoc05" }
 # aoc06 = { path = "../aoc06" }
 # aoc07 = { path = "../aoc07" }
