@@ -1,4 +1,4 @@
-use anyhow::{Context, Result};
+use anyhow::Result;
 
 pub fn main() -> Result<()> {
     let start = std::time::Instant::now();
@@ -14,14 +14,14 @@ pub fn main() -> Result<()> {
     Ok(())
 }
 
-pub fn solve_a() -> Result<()> {
+pub fn solve_a() -> Result<usize> {
     let input = include_str!("../input");
 
-    Ok(())
+    Ok(0)
 }
 
-pub fn solve_b() -> Result<()> {
+pub fn solve_b() -> Result<usize> {
     let input = include_str!("../input");
 
-    Ok(())
+    Ok(0)
 }
