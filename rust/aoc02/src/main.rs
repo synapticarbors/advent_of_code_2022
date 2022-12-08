@@ -1,4 +1,4 @@
-use anyhow::{Context, Result};
+use anyhow::Result;
 
 pub fn main() -> Result<()> {
     let start = std::time::Instant::now();
