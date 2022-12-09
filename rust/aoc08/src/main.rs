@@ -138,12 +138,14 @@ pub fn solve_b() -> Result<usize> {
                     .position(|nh| nh >= h)
                     .unwrap_or_else(|| (ncols - j).wrapping_sub(2))
                     .wrapping_add(1);
+
                 // North
                 let n = (1..i + 1)
                     .map(|offset| map[i - offset][j])
                     .position(|nh| nh >= h)
                     .unwrap_or_else(|| i.wrapping_sub(1))
                     .wrapping_add(1);
+
                 // South
                 let s = (1..(nrows - i))
                     .map(|offset| map[i + offset][j])
