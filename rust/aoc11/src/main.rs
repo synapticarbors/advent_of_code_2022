@@ -100,22 +100,22 @@ pub fn solve_a() -> Result<usize> {
 
     for _ in 0..nrounds {
         for mi in 0..monkeys.len() {
-            while let Some(w) = monkeys[mi].items.pop_front() {
+            while let Some(worry) = monkeys[mi].items.pop_front() {
                 let m = &mut monkeys[mi];
-                let nw = match m.op {
-                    Operation::Add(x) => (w + x) / 3,
-                    Operation::Multiply(x) => (w * x) / 3,
-                    Operation::Square => (w * w) / 3,
+                let new_worry = match m.op {
+                    Operation::Add(x) => (worry + x) / 3,
+                    Operation::Multiply(x) => (worry * x) / 3,
+                    Operation::Square => (worry * worry) / 3,
                 };
                 m.ninspected += 1;
 
-                let target_mi = if nw % m.test_div_by == 0 {
+                let target_mi = if new_worry % m.test_div_by == 0 {
                     m.ttt
                 } else {
                     m.ttf
                 };
 
-                monkeys[target_mi].items.push_back(nw);
+                monkeys[target_mi].items.push_back(new_worry);
             }
         }
     }
@@ -133,26 +133,26 @@ pub fn solve_b() -> Result<usize> {
 
     let mut monkeys = parse_input(include_str!("../input"));
 
-    let lcm = monkeys.iter().map(|m| m.test_div_by).product::<usize>();
+    let common_multiple = monkeys.iter().map(|m| m.test_div_by).product::<usize>();
 
     for _ in 0..nrounds {
         for mi in 0..monkeys.len() {
-            while let Some(w) = monkeys[mi].items.pop_front() {
+            while let Some(worry) = monkeys[mi].items.pop_front() {
                 let m = &mut monkeys[mi];
-                let nw = match m.op {
-                    Operation::Add(x) => (w + x) % lcm,
-                    Operation::Multiply(x) => (w * x) % lcm,
-                    Operation::Square => (w * w) % lcm,
+                let new_worry = match m.op {
+                    Operation::Add(x) => (worry + x) % common_multiple,
+                    Operation::Multiply(x) => (worry * x) % common_multiple,
+                    Operation::Square => (worry * worry) % common_multiple,
                 };
                 m.ninspected += 1;
 
-                let target_mi = if nw % m.test_div_by == 0 {
+                let target_mi = if new_worry % m.test_div_by == 0 {
                     m.ttt
                 } else {
                     m.ttf
                 };
 
-                monkeys[target_mi].items.push_back(nw);
+                monkeys[target_mi].items.push_back(new_worry);
             }
         }
     }
