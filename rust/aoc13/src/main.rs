@@ -84,19 +84,17 @@ pub fn solve_a() -> Result<usize> {
 }
 
 pub fn solve_b() -> Result<usize> {
-    let mut packets = include_str!("../input")
-        .lines()
-        .filter(|l| !l.is_empty())
-        .map(parse)
-        .collect::<Vec<_>>();
-
     let dp1 = parse("[[2]]");
     let dp2 = parse("[[6]]");
 
-    packets.extend([dp1.clone(), dp2.clone()]);
-    packets.sort_unstable();
+    let packets = include_str!("../input")
+        .lines()
+        .filter(|l| !l.is_empty())
+        .map(parse)
+        .filter(|x| x < &dp2)
+        .collect::<Vec<_>>();
 
-    let x = (packets.binary_search(&dp1).unwrap() + 1) * (packets.binary_search(&dp2).unwrap() + 1);
+    let x = (packets.iter().filter(|x| *x < &dp1).count() + 1) * (packets.len() + 2);
 
     Ok(x)
 }
