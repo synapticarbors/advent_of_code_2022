@@ -1,6 +1,3 @@
-const NRUNS: usize = 50;
-const KEEP: usize = NRUNS / 10;
-
 fn timeit(func: fn() -> ()) -> std::time::Duration {
     let start = std::time::Instant::now();
     (func)();
@@ -11,11 +8,21 @@ fn main() {
     let times: Vec<_> = benchmark::solvers()
         .iter()
         .map(|s| {
-            let mut x = (0..NRUNS).map(|_| timeit(s.func)).collect::<Vec<_>>();
+            let x0 = timeit(s.func);
+            let x1 = timeit(s.func);
+            let xmid = (x0 + x1) / 2;
+            let goal_duration = std::time::Duration::from_millis(200);
+            let nruns = (goal_duration.as_nanos() as f64 / xmid.as_nanos() as f64).floor() as usize;
+            let nruns = std::cmp::min(std::cmp::max(nruns, 10), 50) as usize;
+
+            let keep = std::cmp::max(std::cmp::min(nruns, nruns / 10), 5) as usize;
+            // println!("{} {}", nruns, keep);
+
+            let mut x = (0..nruns).map(|_| timeit(s.func)).collect::<Vec<_>>();
             x.sort_unstable();
             (
                 s.name,
-                x.iter().take(KEEP).sum::<std::time::Duration>() / (KEEP as u32),
+                x.iter().take(keep).sum::<std::time::Duration>() / (keep as u32),
             )
         })
         .collect();
