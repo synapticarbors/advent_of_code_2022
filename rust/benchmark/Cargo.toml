@@ -20,7 +20,7 @@ aoc11 = { path = "../aoc11" }
 aoc12 = { path = "../aoc12" }
 aoc13 = { path = "../aoc13" }
 aoc14 = { path = "../aoc14" }
-# aoc15 = { path = "../aoc15" }
+aoc15 = { path = "../aoc15" }
 # aoc16 = { path = "../aoc16" }
 # aoc17 = { path = "../aoc17" }
 # aoc18 = { path = "../aoc18" }
