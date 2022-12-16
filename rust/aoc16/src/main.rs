@@ -170,7 +170,7 @@ fn find_max_release(
 }
 
 pub fn solve_a() -> Result<usize> {
-    let cave = parse_input(include_str!("../example1"));
+    let cave = parse_input(include_str!("../input"));
     let distances = cave.calc_distances();
 
     let mut targets = HashSet::from_iter(
