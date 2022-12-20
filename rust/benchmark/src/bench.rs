@@ -13,9 +13,9 @@ fn main() {
             let xmid = (x0 + x1) / 2;
             let goal_duration = std::time::Duration::from_millis(200);
             let nruns = (goal_duration.as_nanos() as f64 / xmid.as_nanos() as f64).floor() as usize;
-            let nruns = std::cmp::min(std::cmp::max(nruns, 10), 50) as usize;
+            let nruns = std::cmp::min(std::cmp::max(nruns, 3), 50) as usize;
 
-            let keep = std::cmp::max(std::cmp::min(nruns, nruns / 10), 5) as usize;
+            let keep = std::cmp::max(std::cmp::min(nruns, nruns / 10), 3) as usize;
             // println!("{} {}", nruns, keep);
 
             let mut x = (0..nruns).map(|_| timeit(s.func)).collect::<Vec<_>>();
