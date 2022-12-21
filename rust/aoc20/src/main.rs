@@ -39,9 +39,8 @@ fn decrypt(seq: &mut [isize], ntimes: usize) {
             let src_ix = idx.iter().position(|&i| i == j).unwrap();
 
             let val = seq[src_ix];
-            let dst_ix: usize = src_ix
-                .wrapping_add_signed(val.rem_euclid(n as isize - 1))
-                .rem_euclid(n - 1);
+            let dst_ix: usize =
+                (src_ix + val.rem_euclid(n as isize - 1) as usize).rem_euclid(n - 1);
 
             move_element(seq, src_ix, dst_ix);
             move_element(&mut idx, src_ix, dst_ix);
